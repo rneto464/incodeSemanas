@@ -1,0 +1,59 @@
+public class Carro {
+    private String marca;
+    private String modelo;
+    private int ano;
+
+    public Carro(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+
+    public void acelerar() {
+        System.out.println(this.modelo + " está acelerando!");
+    }
+
+    public void frear() {
+        System.out.println(this.modelo + " está freando!");
+    }
+
+    public void alterarAno(int novoAno) {
+        novoAno = 2000;
+        System.out.println("Ano dentro do método: " + novoAno);
+    }
+
+    public void revisao(Carro carro) {
+        carro.ano = 2024;
+    }
+
+    public void exibirInfo() {
+        System.out.println("Marca: " + this.marca + ", Modelo: " + this.modelo + ", Ano: " + this.ano);
+    }
+}
+
+
+// Execução de Aplicação
+
+public class Aplicacao {
+    public static void main(String[] args) {
+        Carro meuCarro = new Carro("Ford", "Mustang", 1967);
+        Carro outroCarro = new Carro("Tesla", "Model S", 2020);
+
+        meuCarro.acelerar();
+        outroCarro.frear();
+
+        int anoOriginal = 2010;
+        System.out.println("\nAntes de alterarAno: " + anoOriginal);
+        meuCarro.alterarAno(anoOriginal);
+        System.out.println("Depois de alterarAno: " + anoOriginal);
+
+        System.out.println("\nAntes da revisão:");
+        outroCarro.exibirInfo();
+        meuCarro.revisao(outroCarro);
+        System.out.println("Depois da revisão:");
+        outroCarro.exibirInfo();
+
+        System.out.println("\nInformações do Carro 1:");
+        meuCarro.exibirInfo();
+    }
+}
